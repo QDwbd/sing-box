@@ -93,7 +93,8 @@ servername_list=(
 )
 
 is_random_ss_method=${ss_method_list[$(shuf -i 4-6 -n1)]} # random only use ss2022
-is_random_servername=${servername_list[$(shuf -i 0-${#servername_list[@]} -n1) - 1]}
+random_index=$(shuf -i 0-$((${#servername_list[@]} - 1)) -n1)
+is_random_servername=${servername_list[$random_index]}
 
 msg() {
     echo -e "$@"
